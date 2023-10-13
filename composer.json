@@ -1,0 +1,14 @@
+{
+    "name": "colossal/busy-bee",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "colossal/colossal-http-message": "^2.0",
+        "colossal/colossal-router": "^1.0"
+    }
+}

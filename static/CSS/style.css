@@ -1,0 +1,96 @@
+:root {
+    --text-bee-brown:  rgb(105, 65,  25);
+    --text-bee-yellow: rgb(227, 217, 77);
+
+    --bg-bee-brown:  rgba(105, 65,  25, 0.7);
+    --bg-bee-yellow: rgba(227, 217, 77, 0.7);
+
+    --default-border-radius: 0.25rem;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-width: 1000px;
+    background-image: url('/static/Images/Sunflowers.jpg');
+    background-position: center;
+    background-size: 94.5%;
+}
+
+input,
+textarea {
+    margin-top: 0.5rem;
+    padding: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width:  100%;
+    height: 2rem;
+}
+
+input[type="submit"] {
+    width:  8rem;
+    border-radius: var(--default-border-radius);
+    color: white;
+    background-color: blue;
+    font-size: large;
+    font-weight: bold;
+}
+
+textarea {
+    width:  100%;
+    height: 8rem;
+}
+
+.text-bee-brown     { color: var(--text-bee-brown); }
+.text-bee-yellow    { color: var(--text-bee-yellow); }
+
+.bg-bee-brown   { background-color: var(--bg-bee-brown); }
+.bg-bee-yellow  { background-color: var(--bg-bee-yellow); }
+
+.rounded { border-radius: var(--default-border-radius); }
+
+.navbar-button-active,
+.navbar-button-inactive {
+    padding: 1rem;
+    width: 8rem;
+    border-radius: var(--default-border-radius);
+    font-size: large;
+    font-weight: bold;
+}
+
+.navbar-button-active {
+    color: var(--text-bee-brown);
+    background-color: var(--text-bee-yellow);
+}
+
+.navbar-button-inactive {
+    color: gray;
+    background-color: lightgray;
+}
+
+.icon-button {
+    width:  2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--default-border-radius);
+}
+
+.icon-button span {
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.navbar-button-active:hover,
+.icon-button:hover {
+    transform: scale(1.05)
+}
+
+#todo-items-container {
+    margin-top: 1rem;
+}

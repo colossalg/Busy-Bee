@@ -1,0 +1,5 @@
+/.phpunit.cache/
+/.vscode/
+/coverage/
+/vendor/
+*.bak

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <script src="/static/JavaScript/ModalWindow.js"></script>
+        <script src="/static/JavaScript/TodoItem.js"></script>
+        <script src="/static/JavaScript/index.js"></script>
+        <link rel="stylesheet" href="/static/CSS/framework.css">
+        <link rel="stylesheet" href="/static/CSS/style.css">
+    </head>
+    <body>
+        <nav class="m-0-auto p-1-rem w-80-pct display-flex justify-content-space-between align-items-center rounded text-bee-yellow bg-bee-brown">
+            <h1>Busy-Bee! (Buzzz Buzzz)</h1>
+            <div>
+                <button class="navbar-button-inactive" id="sign-up-show-button">Sign Up</button>
+                <button class="navbar-button-inactive" id="sign-in-show-button">Sign In</button>
+                <button class="navbar-button-inactive" id="sign-out-button">Sign Out</button>
+            </div>
+        </nav>
+
+        <div class="container p-1-rem w-80-pct rounded bg-bee-yellow hidden" id="primary-content">
+            <div class="container w-100-pct justify-content-right">
+                <button class="icon-button bg-green" id="new-todo-item-button">
+                    <span class="text-white">+</span>
+                </button>
+            </div>
+            <div class="container w-100-pct" id="todo-items-container"></div>
+        </div>
+
+        <template id="sign-up-modal-content">
+            <div class="p-1-rem">
+                <h1>Sign Up</h1>
+                <div class="w-100-pct display-flex flex-wrap justify-content-right">
+                    <input type="text"     id="sign-up-username" name="sign-up-username" placeholder="Enter username here...">
+                    <input type="password" id="sign-up-password" name="sign-up-password" placeholder="Enter password here...">
+                    <input type="password" id="sign-up-password-confirm" name="sign-up-password-confirm" placeholder="Confirm password here...">
+                    <input type="submit"   id="sign-up-submit-button" name="sign-up-submit-button" value="Submit">
+                </div>
+            </div>
+        </template>
+
+        <template id="sign-in-modal-content">
+            <div class="p-1-rem">
+                <h1>Sign In</h1>
+                <div class="w-100-pct display-flex flex-wrap justify-content-right">
+                    <input type="text"     id="sign-in-username" name="sign-in-username" placeholder="Enter username here...">
+                    <input type="password" id="sign-in-password" name="sign-in-password" placeholder="Enter password here...">
+                    <input type="submit"   id="sign-in-submit-button" name="sign-in-submit-button" value="Submit">
+                </div>
+            </div>
+        </template>
+
+        <template id="new-todo-item-modal-content">
+            <div class="p-1-rem">
+                <h1>New Todo</h1>
+                <div class="w-100-pct display-flex flex-wrap justify-content-right">
+                    <textarea name="new-todo-item-text-area" id="new-todo-item-text-area" cols="48" rows="5"></textarea>
+                    <input type="submit" id="new-todo-item-submit-button" name="new-todo-item-submit-button" value="Submit">
+                </div>
+            </div>
+        </template>
+
+        <template id="edit-todo-item-modal-content">
+            <div class="p-1-rem">
+                <h1>Edit Todo</h1>
+                <div class="w-100-pct display-flex flex-wrap justify-content-right">
+                    <textarea name="edit-todo-item-text-area" id="edit-todo-item-text-area" cols="48" rows="5"></textarea>
+                    <input type="submit" id="edit-todo-item-submit-button" name="edit-todo-item-submit-button" value="Submit">
+                </div>
+            </div>
+        </template>
+    </body>
+</html>
