@@ -9,7 +9,7 @@ I created this website to test my PSR-7 and router implementations from these re
 As well as to experiment with web-components.
 
 The features supported are:
-- Basing authentication (via a cruddy home-rolled session authentication); sign-up, sign-in, sign-out.
+- Sign-up, sign-in, and sign-out of users (via a cruddy hand-rolled session middleware).
 - Create, update and deletion of todo items (once the user is authenticated).
 
 Everything seems to work and I think that I succeeded in verifying that my libraries work for a small project such as this.
