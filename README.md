@@ -2,23 +2,11 @@
 
 Throw away project (todo tracker website using hand-rolled PHP libraries).
 
-I created this website to test my PSR-7 and router implementations from these repositories:
+I created this website to test my PSR-7 and router implementations from these repositories (everything seems to work as far as I can see):
 - https://github.com/colossalg/Colossal-HTTP-Message
 - https://github.com/colossalg/Colossal-Router
 
-As well as to experiment with web-components.
-
-The features supported are:
-- Sign-up, sign-in, and sign-out of users (via a cruddy hand-rolled session middleware).
-- Create, update and deletion of todo items (once the user is authenticated).
-
-Everything seems to work and I think that I succeeded in verifying that my libraries work for a small project such as this.
-
-I don't feel that my use of web-components was done correctly and was not satisfied with the state of the front-end code.
-
-Experimenting with these features while also hand-rolling a crumby SPA from plain JS was a poor choice in hind-sight.
-
-I still think they are a promising technology and will likely revisit them in future.
+As well as to experiment with web-components (I wasn't too happy with how I made use of these, I think I will revisit them in the future).
 
 ## Screenshots
 
