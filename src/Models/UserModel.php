@@ -9,9 +9,9 @@ use App\Model;
 
 class UserModel extends Model
 {
-    private const MAX_USERNAME_LENGTH = 256;
+    private const MAX_USERNAME_LENGTH = 255;
 
-    private const MAX_PASSWORD_LENGTH = 256;
+    private const MAX_PASSWORD_LENGTH = 255;
     private const MIN_PASSWORD_LENGTH = 8;
 
     private const PASSWORD_SPECIAL_CHARS = [
@@ -27,7 +27,6 @@ class UserModel extends Model
         $stmt->execute();
 
         $result = $stmt->fetch();
-
         return ($result === false ? null : $result);
     }
 
@@ -54,7 +53,7 @@ class UserModel extends Model
 
         $id = GuidHelper::createGuid();
         if ($id === false) {
-            return null;
+            return false;
         }
 
         $password = password_hash($password, PASSWORD_BCRYPT);

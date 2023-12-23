@@ -16,11 +16,16 @@ class TodoModel extends Model
 
     public function getAll(): false|array
     {
-        $stmt = self::getConnection()->prepare("SELECT * FROM todos WHERE uid = :uid ORDER BY `creation-datetime` DESC");
+        $stmt = self::getConnection()->prepare("SELECT * FROM todos WHERE uid = :uid ORDER BY created_datetime ASC");
         $stmt->bindParam(":uid", $this->uid);
         $stmt->execute();
-
-        return $stmt->fetchAll();
+        return array_map(
+            function($p) {
+                $p->done = boolval($p->done);
+                return $p;
+            },
+            $stmt->fetchAll()
+        );
     }
 
     public function getById(string $id): null|\stdClass
@@ -29,24 +34,32 @@ class TodoModel extends Model
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":uid", $this->uid);
         $stmt->execute();
-
         $result = $stmt->fetch();
-
-        return ($result === false ? null : $result);
+        if ($result === false) {
+            return null;
+        } else {
+            $result->done = boolval($result->done);
+            return $result;
+        }
     }
 
     public function create(string $text, bool $done): bool
     {
         $id = GuidHelper::createGuid();
         if ($id === false) {
-            return null;
+            return false;
         }
     
-        $stmt = self::getConnection()->prepare("INSERT INTO todos(id, uid, text, done) VALUES (:id, :uid, :text, :done)");
+        $stmt = self::getConnection()->prepare(
+            "INSERT INTO todos"     .
+            "(id, uid, text, done) ".
+            "VALUES"                .
+            "(:id, :uid, :text, :done)"
+        );
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":uid", $this->uid);
         $stmt->bindParam(":text", $text);
-        $stmt->bindParam(":done", $done);
+        $stmt->bindParam(":done", intval($done));
         return $stmt->execute();
     }
 
@@ -61,7 +74,7 @@ class TodoModel extends Model
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":uid", $this->uid);
         $stmt->bindParam(":text", $text);
-        $stmt->bindParam(":done", $done);
+        $stmt->bindParam(":done", intval($done));
         return $stmt->execute();
     }
 
